@@ -9,7 +9,7 @@ function memoryGame(input) {
         let [index1, index2] = item.split(' ').map(Number);
         // console.log(`item=${item}\n ind1,2=${index1},${index2}\ntype=`, typeof index1)
 
-        if (index1 == index2 || index1<0 || index2>sequence.length || index2<0 || index1>sequence.length){
+        if (index1 == index2 || index1<0 || index2>=sequence.length || index2<0 || index1>=sequence.length){
             console.log("Invalid input! Adding additional elements to the board");
             let additionalElement = `-${moves}a`;
             let middlePoint = Math.floor(sequence.length / 2); // possible fail
