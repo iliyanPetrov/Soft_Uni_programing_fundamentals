@@ -44,6 +44,7 @@ function worldTour(input) {
 
 }
 
+//83% still TODO
 
 worldTour([
     "Hawai::Cyprys-Greece",
