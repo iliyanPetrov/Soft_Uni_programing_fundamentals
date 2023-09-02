@@ -9,7 +9,32 @@ function plantDiscovery(input) {
             "rating": []
         })
     }
-    console.log(plantsMap)
+    // console.log(plantsMap, '\ninput=', input)
+    for (let line of input) {
+        if (line == "Exhibition"){
+            break;
+        }
+        let tokens = line.split(': ');
+        let command = tokens.shift();
+
+        switch (command){
+            case "Rate":
+                let [plantName, rating] = tokens[0].split(' - ');
+                if (!plantsMap.has(plantName)) {
+                    console.log("error");
+                }
+                else {
+                    plantsMap.get(plantName)['rating'].push(rating);
+                    console.log('ratingArr=', plantsMap.get(plantName)['rating'])
+                }
+                
+            break;
+            case "Update": 
+            break;
+            case "Reset": 
+            break;
+        }
+    }
 }
 
 plantDiscovery([
