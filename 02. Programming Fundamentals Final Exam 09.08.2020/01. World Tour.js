@@ -32,9 +32,21 @@ function worldTour(input) {
                 break;
             case "Switch":
                 let [oldString, newString] = cmnds;
-                while (destinationStr.includes(oldString)){
+                // start
+                let regex = new RegExp(`${oldString}`, 'g');
+
+                let match2 = destinationStr.match(regex);
+                // console.log(match2);
+
+                for (let i = 0; i<match2.length; i++){
+                    let match = regex.exec(destinationStr);
+                    let index = match.index;
+                    // console.log('index is:', index);
+
                     destinationStr = destinationStr.replace(oldString, newString)
+                    // console.log(destinationStr)
                 }
+                // end
                 console.log(destinationStr)
                 break;
             default:
