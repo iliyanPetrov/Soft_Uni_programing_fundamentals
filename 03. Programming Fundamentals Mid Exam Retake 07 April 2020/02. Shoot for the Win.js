@@ -4,7 +4,8 @@ function shootForTheWin(input) {
     for (const line of input) {
         if (line == 'End'){
             // TODO
-            // "Shot targets: {count} -> {target1} {target2}… {targetn}"
+            let count = targets.filter(item => item == -1).length;
+            console.log(`Shot targets: ${count} -> ${targets.join(' ')}`)
             break;
         }
         let currIndex = Number(line);
@@ -15,19 +16,18 @@ function shootForTheWin(input) {
         }else{
             let targetValue = targets[currIndex];
             targets[currIndex] = -1;
-            targets.map((element)=>{
+            targets = targets.map((element)=>{
                 if (element !== -1){
                     if (element > targetValue){
-                        return element - targetValue
+                        return element - targetValue;
                     }else if (element <= targetValue){
-                        return element + targetValue
+                        return element + targetValue;
                     }
                 }
+                return element;
             })            
-            console.log('targets are:', targets)
-
+            // console.log('targets are:', targets)
         }
-
     }
 }
 
