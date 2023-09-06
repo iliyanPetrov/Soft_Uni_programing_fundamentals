@@ -23,8 +23,8 @@ function worldTour(input) {
                 if (startIndex<=endIndex &&
                     startIndex>=0 &&
                     endIndex>=0 &&
-                    startIndex<=destinationStr.length &&
-                    endIndex<=destinationStr.length){
+                    startIndex<destinationStr.length &&
+                    endIndex<destinationStr.length){
                         let substring = destinationStr.slice(startIndex, endIndex+1);
                         destinationStr = destinationStr.replace(substring, "");
                 }// probably fail to be outside
@@ -40,7 +40,6 @@ function worldTour(input) {
 
                 for (let i = 0; i<match2.length; i++){
                     let match = regex.exec(destinationStr);
-                    let index = match.index;
                     // console.log('index is:', index);
 
                     destinationStr = destinationStr.replace(oldString, newString)
@@ -56,7 +55,7 @@ function worldTour(input) {
 
 }
 
-//83% still TODO
+//100% 
 
 worldTour([
     "Hawai::Cyprys-Greece",
