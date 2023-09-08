@@ -4,7 +4,6 @@ function moovingTarget(input) {
 
     for (const line of input) {
         if (line == "End"){
-            // TODO
             console.log(targets.join('|'));
             break;
         }
@@ -39,6 +38,20 @@ function moovingTarget(input) {
             case "Strike": 
                 let [index2, radius] = params;
                 // TODO
+                if (index2 < 0 || index2 >= targets.length){
+                    console.log("Strike missed!")
+                    continue;
+                }else{
+                    let leftRadius = index2 - radius;
+                    let rigthRadius = index2 + radius;
+                    if(leftRadius < 0 || rigthRadius >= targets.length){
+                        console.log("Strike missed!")
+                        continue;
+                    }
+                    let strikedElementsCount = rigthRadius+1 - leftRadius;
+                    targets.splice(leftRadius, strikedElementsCount);
+                    // console.log(`targets after "strike!"= ${targets}`)
+                }
             break;
         }
 
