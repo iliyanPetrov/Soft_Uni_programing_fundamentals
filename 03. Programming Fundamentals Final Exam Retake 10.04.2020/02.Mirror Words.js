@@ -1,5 +1,7 @@
-function mirrorWords(input) {
-    let i;
+function mirrorWords(text) {
+    // PRIMARY IDEA = 2 DIFFERENT REGEX
+    // 1 - FIND MATCHES, 2 - VALIDATE FOUND MATCH
+    let regex1 = /([@#])([A-Za-z]{3,})\1\1([A-Za-z]{3,})\1/g;
 }
 
 mirrorWords([
